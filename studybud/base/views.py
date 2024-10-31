@@ -33,7 +33,6 @@ def room(request,pk):
 def createRoom(request):
     
     form = RoomForm()
-    
     if request.method == 'POST':
         form = RoomForm(request.POST)
         if form.is_valid():
@@ -75,7 +74,7 @@ def deleteRoom(request,pk):
 
 
 def loginPage(request):
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         return render('home')
     if request.method == 'POST':
         username = request.POST.get('username')
