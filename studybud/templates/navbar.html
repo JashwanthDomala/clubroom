@@ -1,7 +1,15 @@
 <a href="/">
     <h1>LOGO</h1>
 </a>
+
+
 <form action="{% url 'home' %}">
     <input type="text" name="q" placeholder="Search Rooms.." >
 </form>
+
+{% if user request.user.iius_authenticated %}
+<a href="{% url 'login' %}">Login</a>
+{% else %}
+<a href="{% url 'login' %}">Login</a>
+{% endif %}
 <hr>
