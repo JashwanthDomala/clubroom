@@ -31,7 +31,9 @@ def room(request,pk):
 
 @login_required(login_url='login')
 def createRoom(request):
+    
     form = RoomForm()
+    
     if request.method == 'POST':
         form = RoomForm(request.POST)
         if form.is_valid():
@@ -45,7 +47,6 @@ def createRoom(request):
 def updateRoom(request,pk):
     room = Room.objects.get(id=pk)
     form = RoomForm(instance=room)
-    form.host = request.host
     if request.user == room.host:
         if request.method == 'POST':
             form = RoomForm(request.POST , instance = room )
